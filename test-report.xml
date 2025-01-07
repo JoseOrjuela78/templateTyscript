@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\alfre\OneDrive\Documentos\Alfredo\cursosDev\app_ts\test\sum.spec.ts">
+    <testCase name="testing function sum sum of 1 and 2 is 3" duration="4"/>
+    <testCase name="testing function sum sum of two negative number shuold be a negative number" duration="1"/>
+  </file>
+</testExecutions>
