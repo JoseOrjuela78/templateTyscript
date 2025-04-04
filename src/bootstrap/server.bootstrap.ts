@@ -1,6 +1,8 @@
 import { Application } from 'express';
 import http from 'http';
 import { Bootstrap } from './bootstrap';
+import { LoggerService } from '../common/logger';
+const logger = new LoggerService();
 
 
 export class ServerBootstrap implements Bootstrap{
@@ -17,11 +19,11 @@ export class ServerBootstrap implements Bootstrap{
                       .listen(port)
                     .on('listening', () => {
                         resolve(true);
-                                    console.log(`Server is runnig on port ${port}`);
+                                logger.info(`Server is runnig on port ${port}`);
                           })
                     .on("error", (error: NodeJS.ErrnoException) => {
                         reject(error);
-                                    console.log(`Error: ${error.message}`);
+                                logger.error(`Error: ${error.message}`);
                       });
             
                     })
