@@ -1,24 +1,31 @@
-import './config/environment-vars';
+import 'reflect-metadata';
 import { app } from './app';
 import { ServerBootstrap } from './bootstrap/server.bootstrap';
-import { DatabaseBootstrap } from './bootstrap/database.bootstrap';
+import { LoggerService } from './common/logger';
+const logger = new LoggerService();
 
+
+import { envs } from './config/environment-vars';
+const dbConfig = envs.db;
+import { Database } from './bootstrap/database.bootstrap';
+const database = Database.getInstance(dbConfig);
 const serverBootstrap = new ServerBootstrap(app);
-const databaseBootstrap = new DatabaseBootstrap();
 
 async function start() {
   
   try {
     await Promise.allSettled([
       serverBootstrap.initialize(),
-      databaseBootstrap.initialize()
-  ])
+      database.connect()
+    ])
+    
+    await database.close();
 } catch (error: unknown) {
 
   if (error instanceof Error) {
-    console.log(`Error: ${(error).message}`)
+    logger.info(`Error: ${(error).message}`)
   } else {
-    console.log('An error ocurred', error);
+    logger.error(`An error ocurred':${error}`);
   }
   
   }

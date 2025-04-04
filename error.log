@@ -1,0 +1,9 @@
+{"level":"error","message":"Error al ejecutar la consulta: RequestError: Validation failed for parameter 'identificacion'. Invalid string."}
+{"level":"error","message":"Wed Mar 05 2025 15:10:34 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion RequestError: Validation failed for parameter 'identificacion'. Invalid string."}
+{"level":"error","message":"login no recibió ningún resultado "}
+{"level":"error","message":"Error al ejecutar la consulta: RequestError: Validation failed for parameter 'identificacion'. Invalid string."}
+{"level":"error","message":"Wed Mar 05 2025 15:13:53 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion RequestError: Validation failed for parameter 'identificacion'. Invalid string."}
+{"level":"error","message":"login no recibió ningún resultado "}
+{"level":"error","message":"Error al ejecutar la consulta: RequestError: Unknown object type 'PR_CREAR_USUARIO' used in a CREATE, DROP, or ALTER statement."}
+{"level":"error","message":"Wed Mar 05 2025 15:16:50 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion RequestError: Unknown object type 'PR_CREAR_USUARIO' used in a CREATE, DROP, or ALTER statement."}
+{"level":"error","message":"login no recibió ningún resultado "}

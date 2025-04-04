@@ -8,8 +8,7 @@ type EnvironmentVariables = {
   DB_USER: string;
   DB_PASS: string;
   DB_NAME: string;
-  DB_PORT: number;
-};
+ };
 
 type ValidationEnvironmentVariables = {
   error: joi.ValidationError | undefined;
@@ -24,8 +23,7 @@ function validateEnvironmentVariables(vars: Record<string, any>) {// Record util
       DB_HOST: joi.string().required(),
       DB_USER: joi.string().required(),
       DB_PASS: joi.string().required(),
-      DB_NAME: joi.string().required(),
-      DB_PORT: joi.number().integer().required()
+      DB_NAME: joi.string().required()
     })
     .unknown(true); //solo valida variables que esten en el esquema
 
@@ -46,11 +44,21 @@ function loadEnvironmentVariables() {
   return {
     port: value.PORT,
     db: {
-      host: value.DB_HOST,
-      port: value.DB_PORT,
-      username: value.DB_USER,
-      password: value.DB_PASS,
-      database: value.DB_NAME
+          user  : value.DB_USER,
+      password  : value.DB_PASS,
+      database  : value.DB_NAME,
+        server  : value.DB_HOST,
+        pool: {
+        max: 10,
+        min: 0,
+        idleTimeoutMillis: 30000
+    },
+      options: {
+        encrypt: false, // for azure
+        trustServerCertificate: false, // change to true for local dev / self-signed certs
+        enableArithAbort: false
+    }
+     
     }
   };
 }
