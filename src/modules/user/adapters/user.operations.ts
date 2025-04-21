@@ -1,4 +1,4 @@
-import { Db1 } from "./db1";
+import { Db1 } from "../../../core/adapter/db1";
 import * as sql from 'mssql';
 import { UserE } from "../entities/model.user.entity";
 import { LoggerService } from "../../../common/logger";
@@ -262,15 +262,15 @@ export class UserOperations {
         }
     }
 
-   public async getPag(page:number,pageSize:number,estado:number) {
+   public async getPag(page:any, pageSize:any, id:any, status:any) {
         try {
             
             const query = 'EXEC PR_GET_USUARIOS_PAG @page,@page_size, @estado,@total_rows, @code OUTPUT, @message OUTPUT';
             const params = {
                 page: { value: page, type: sql.Int },
                 page_size:{value: pageSize ,type: sql.Int},
-                estado: { value: estado, type: sql.Bit },
-                total_rows: { value: estado, type: sql.Int,isOutput: true},
+                estado: { value: status, type: sql.Bit },
+                total_rows: { value: status, type: sql.Int,isOutput: true},
                 code:{value: null,type: sql.VarChar(50),isOutput: true},
                 message:{value: null,type: sql.VarChar(50),isOutput: true}
             }; 

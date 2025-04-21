@@ -7,3 +7,51 @@
 {"level":"error","message":"Error al ejecutar la consulta: RequestError: Unknown object type 'PR_CREAR_USUARIO' used in a CREATE, DROP, or ALTER statement."}
 {"level":"error","message":"Wed Mar 05 2025 15:16:50 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion RequestError: Unknown object type 'PR_CREAR_USUARIO' used in a CREATE, DROP, or ALTER statement."}
 {"level":"error","message":"login no recibió ningún resultado "}
+{"level":"error","message":"Error al ejecutar la consulta: RequestError: Validation failed for parameter 'DEPENDE'. Invalid string."}
+{"level":"error","message":"Tue Apr 08 2025 17:22:14 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion RequestError: Validation failed for parameter 'DEPENDE'. Invalid string."}
+{"level":"error","message":"no se recibió ningún resultado "}
+{"level":"error","message":"Error al ejecutar la consulta: RequestError: Must declare the scalar variable \"@P_RESULT\"."}
+{"level":"error","message":"Tue Apr 08 2025 17:25:54 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion RequestError: Must declare the scalar variable \"@P_RESULT\"."}
+{"level":"error","message":"no se recibió ningún resultado "}
+{"level":"error","message":"Error al ejecutar la consulta: RequestError: Operand type clash: varchar is incompatible with cursor"}
+{"level":"error","message":"Tue Apr 08 2025 17:32:53 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion RequestError: Operand type clash: varchar is incompatible with cursor"}
+{"level":"error","message":"no se recibió ningún resultado "}
+{"level":"error","message":"Error al ejecutar la consulta: RequestError: Operand type clash: varchar is incompatible with cursor"}
+{"level":"error","message":"Wed Apr 09 2025 07:49:59 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion RequestError: Operand type clash: varchar is incompatible with cursor"}
+{"level":"error","message":"no se recibió ningún resultado "}
+{"level":"error","message":"Wed Apr 09 2025 11:20:19 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot set properties of undefined (setting 'DATA')"}
+{"level":"error","message":"Wed Apr 09 2025 11:21:24 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot set properties of undefined (setting 'DATA')"}
+{"level":"error","message":"Wed Apr 09 2025 11:22:28 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot set properties of undefined (setting 'DATA')"}
+{"level":"error","message":"Wed Apr 09 2025 11:32:15 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading 'STATUS_CODE')"}
+{"level":"error","message":"Wed Apr 09 2025 11:33:03 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading 'STATUS_CODE')"}
+{"level":"error","message":"Wed Apr 09 2025 11:33:08 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading 'STATUS_CODE')"}
+{"level":"error","message":"Wed Apr 09 2025 11:33:09 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading 'STATUS_CODE')"}
+{"level":"error","message":"Wed Apr 09 2025 11:34:15 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading 'STATUS_CODE')"}
+{"level":"error","message":"Wed Apr 09 2025 11:34:16 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading 'STATUS_CODE')"}
+{"level":"error","message":"Wed Apr 09 2025 11:35:12 GMT-0500 (hora estándar de Colombia) Error Login connetion SyntaxError: \"undefined\" is not valid JSON"}
+{"level":"error","message":"Wed Apr 09 2025 11:40:24 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot set properties of undefined (setting 'STATUS_CODE')"}
+{"level":"error","message":"Wed Apr 09 2025 11:42:20 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot set properties of undefined (setting 'STATUS_CODE')"}
+{"level":"error","message":"Wed Apr 09 2025 11:49:51 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot set properties of undefined (setting 'STATUS_CODE')"}
+{"level":"error","message":"Error: listen EADDRINUSE: address already in use :::3001"}
+{"level":"error","message":"Error: listen EADDRINUSE: address already in use :::3001"}
+{"level":"error","message":"Error: listen EADDRINUSE: address already in use :::3001"}
+{"level":"error","message":"Fri Apr 18 2025 09:52:09 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading '0')"}
+{"level":"error","message":"Fri Apr 18 2025 09:52:44 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading '0')"}
+{"level":"error","message":"Fri Apr 18 2025 09:54:15 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading '0')"}
+{"level":"error","message":"Fri Apr 18 2025 09:54:17 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading '0')"}
+{"level":"error","message":"Error: listen EADDRINUSE: address already in use :::3001"}
+{"level":"error","message":"Error: listen EADDRINUSE: address already in use :::3001"}
+{"level":"error","message":"Error: listen EADDRINUSE: address already in use :::3001"}
+{"level":"error","message":"Error: listen EADDRINUSE: address already in use :::3001"}
+{"level":"error","message":"Error al ejecutar la consulta: ConnectionError: Connection is closed."}
+{"level":"error","message":"Fri Apr 18 2025 12:14:10 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion ConnectionError: Connection is closed."}
+{"level":"error","message":"Fri Apr 18 2025 12:14:10 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading 'result')"}
+{"level":"error","message":"Error al ejecutar la consulta: RequestError: Must declare the scalar variable \"@ID_ROL\"."}
+{"level":"error","message":"Sun Apr 20 2025 08:54:04 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion RequestError: Must declare the scalar variable \"@ID_ROL\"."}
+{"level":"error","message":"Sun Apr 20 2025 08:54:04 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading 'result')"}
+{"level":"error","message":"Error al ejecutar la consulta: RequestError: Validation failed for parameter 'JsonInput'. Invalid string."}
+{"level":"error","message":"Mon Apr 21 2025 09:43:03 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion RequestError: Validation failed for parameter 'JsonInput'. Invalid string."}
+{"level":"error","message":"Mon Apr 21 2025 09:43:03 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading 'result')"}
+{"level":"error","message":"Error al ejecutar la consulta: RequestError: Must declare the scalar variable \"@ID_PATH\"."}
+{"level":"error","message":"Mon Apr 21 2025 16:01:18 GMT-0500 (hora estándar de Colombia) Error executeQuery connetion RequestError: Must declare the scalar variable \"@ID_PATH\"."}
+{"level":"error","message":"Mon Apr 21 2025 16:01:18 GMT-0500 (hora estándar de Colombia) Error Login connetion TypeError: Cannot read properties of undefined (reading 'result')"}

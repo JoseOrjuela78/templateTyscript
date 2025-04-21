@@ -1,0 +1,28 @@
+import { Router } from 'express';
+import { MenuController } from './menu.controller';
+import { MenuAplication } from '../../application/menu.application';
+import { MenuPort } from '../menu.port';
+import { MenuAdapter } from '../../adapters/menus.adapter';
+
+
+export class MenuRouters{
+    readonly router = Router();
+
+    constructor(private readonly controller: MenuController) { 
+        this.mountRoutes();
+    }
+    
+    mountRoutes() {
+
+        this.router.post('/', this.controller.create.bind(this.controller));
+        this.router.put('/', this.controller.update.bind(this.controller));
+        this.router.delete('/:id/:status/:user_exe', this.controller.inactivate.bind(this.controller));
+        this.router.put('/get', this.controller.getByPage.bind(this.controller));
+        
+    }
+};
+
+const port: MenuPort = new MenuAdapter();
+const application = new MenuAplication(port);
+const controller = new MenuController(application);
+export const menuRouter = new MenuRouters(controller).router;

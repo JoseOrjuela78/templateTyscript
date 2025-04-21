@@ -1,7 +1,7 @@
 
-import { Database } from "../../../bootstrap/database.bootstrap";
-import { envs } from "../../../config/environment-vars";
-import { LoggerService } from '../../../common/logger';
+import { Database } from "../../bootstrap/database.bootstrap";
+import { envs } from "../../config/environment-vars";
+import { LoggerService } from '../../common/logger';
 const logger = new LoggerService();
 const dbConfig = envs.db;
 

@@ -1,4 +1,5 @@
 import { PageResult } from "../interfaces/page-results";
+import { ResultI } from './operarations.model';
 
 export abstract class BaseAdapter<Entity, Model>{
     protected operations: any
@@ -9,30 +10,39 @@ export abstract class BaseAdapter<Entity, Model>{
             this.dtoAdapter = dtoAdapter;
     }
     
-   async create(model: Model): Promise<Model> {
+    async create(model: Model): Promise<ResultI> {
+       //convierte domain en entidad
+       const userEntity = this.dtoAdapter.fromDomainToData(model) as Entity;
+       //envia entidad a operacion y retorna un ResultI
+        const result: ResultI = await this.operations.create(userEntity);
+    
+       //convierte entidad a domain
+       result.DATA = this.dtoAdapter.fromDataToDomain(result.DATA);
+       return result;
+    };
+
+    async update(model: Model): Promise<ResultI> {
+        //convierte domain en entidad
         const userEntity = this.dtoAdapter.fromDomainToData(model) as Entity;
-       const result:any = await this.operations.createUser(userEntity);
-       console.log({ code: result.result.recordsets[0][0].COD,
-                     message: result.result.recordsets[1][0].MSG
-                  });
-        return model;
+        //envia entidad a operacion y retorna un ResultI
+        const result: ResultI = await this.operations.update(userEntity);
+        //convierte entidad a domain
+        result.DATA = this.dtoAdapter.fromDataToDomain(result.DATA);
+        return result;
     };
 
-    async update(model: Model): Promise<Model> {
-        const userEntity = this.dtoAdapter.fromDomainToData(model)  as Entity;
-        await this.operations.updateUser(userEntity);
-        return model;
-    };
-
-    async delete(userId: any): Promise<void> {
-        await this.operations.deleteUser(userId);
-    }
+    async inactivate(id:number, status:number, user_exe: number): Promise<ResultI> {
+        
+        const result: ResultI = await this.operations.inactivate(id, status, user_exe);
+        return result;
+     }
 
     async get(userId: any): Promise<Model | null> {
         
         const userEntityFound : any = await this.operations.getId(userId);
         if (userEntityFound) {
             const userDomain = this.dtoAdapter.fromDataToDomain(userEntityFound) as Model;
+
             return userDomain;
         };
 
@@ -54,22 +64,26 @@ export abstract class BaseAdapter<Entity, Model>{
 
     }
   
-    async getByPage(page: number, pageSize: number, estado: number): Promise<PageResult<Model>>{
-        let result: any;
-        result = await this.operations.getPag(page, pageSize, estado);
+    async getByPage(page: number, pageSize: number, id:any,status:any, filtros?:any): Promise<PageResult<Model>>{
         
-        if (result.total_rows > 0) {
+        const result: ResultI = await this.operations.getPag(page, pageSize, id, status, filtros);
+        
+        if (result.TOTAL_ROWS && result.TOTAL_ROWS > 0) {
 
             return {
-                data: this.dtoAdapter.fromDataToDomain(result.data) as Model[],
+                STATUS_CODE: result.STATUS_CODE,
+                STATUS_DESC: result.STATUS_DESC,
+                data: this.dtoAdapter.fromDataToDomain(result.DATA) as Model[],
                 page,
                 pageSize,
-                total: result.total_rows
+                total: result.TOTAL_ROWS
             }
             
         }
 
         return {
+            STATUS_CODE: result.STATUS_CODE,
+            STATUS_DESC: result.STATUS_DESC,
             data: [],
             page,
             pageSize,

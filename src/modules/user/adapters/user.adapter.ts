@@ -3,7 +3,7 @@ import { UserD } from '../models/model.user.domain';
 import { UserE } from '../entities/model.user.entity';
 import { UserOperations } from './user.operations';
 import { UserDto } from '../dtos/user.dto';
-import { Db1 } from './db1';
+import { Db1 } from '../../../core/adapter/db1';
 import { UserPort } from '../ports/user.port';
 import { BaseAdapter } from '../../../core/adapter/base.adapter';
 const db = new Db1();
