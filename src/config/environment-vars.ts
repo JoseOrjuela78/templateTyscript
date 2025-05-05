@@ -8,6 +8,9 @@ type EnvironmentVariables = {
   DB_USER: string;
   DB_PASS: string;
   DB_NAME: string;
+  ACCESS_TOKEN_SECRET: string;
+  ACCESS_TOKEN_EXPIRES_IN: string;
+
  };
 
 type ValidationEnvironmentVariables = {
@@ -23,7 +26,9 @@ function validateEnvironmentVariables(vars: Record<string, any>) {// Record util
       DB_HOST: joi.string().required(),
       DB_USER: joi.string().required(),
       DB_PASS: joi.string().required(),
-      DB_NAME: joi.string().required()
+      DB_NAME: joi.string().required(),
+      ACCESS_TOKEN_SECRET: joi.string().required(),
+      ACCESS_TOKEN_EXPIRES_IN: joi.string().required()
     })
     .unknown(true); //solo valida variables que esten en el esquema
 
@@ -57,9 +62,10 @@ function loadEnvironmentVariables() {
         encrypt: false, // for azure
         trustServerCertificate: false, // change to true for local dev / self-signed certs
         enableArithAbort: false
-    }
-     
-    }
+      }
+    },
+    accesTokenSecret: value.ACCESS_TOKEN_SECRET,
+    accesTokenExpiresIn: value.ACCESS_TOKEN_EXPIRES_IN
   };
 }
 

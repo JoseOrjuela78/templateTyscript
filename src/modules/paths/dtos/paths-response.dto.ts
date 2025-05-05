@@ -1,6 +1,6 @@
 import { Expose, plainToInstance } from "class-transformer";
-import { IResponseDto } from "../../user/dtos/user-response.dto";
 import { PathsD } from '../models/model.paths.domain';
+import { IResponseDto } from "../../../core/interfaces/response-dto";
 
 
 export class PathsResponse{

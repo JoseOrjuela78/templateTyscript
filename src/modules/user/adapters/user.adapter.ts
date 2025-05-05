@@ -13,9 +13,6 @@ export class UserAdapter extends BaseAdapter<UserE, UserD> implements UserPort{
         super(new UserOperations(db), new UserDto());
     }
 
-    login(user: UserD): Promise<UserD> {
-        throw new Error('Method not implemented.');
-    }
     findByEmail(email: string): Promise<UserD> {
         throw new Error('Method not implemented.');
     }

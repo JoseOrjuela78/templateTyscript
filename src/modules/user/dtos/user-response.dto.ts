@@ -1,39 +1,48 @@
 import { Expose, plainToInstance } from "class-transformer";
 import { UserD } from "../models/model.user.domain";
+import { IResponseDto } from "../../../core/interfaces/response-dto";
+
+
 
 export class UserResponse {
 
-
     @Expose()
-    consecutivo?: number;
-    @Expose({groups:['admin','operator']})
-    fecha_creacion!: string;
+    f_create!: Date;
     @Expose()
-    fecha_actualizacion!: string;
-    @Expose({groups:['admin']})
-    numeroCedula!: number;
-    @Expose({groups:['admin']})
-    alias!: string;
+    f_update!: Date
     @Expose()
-    nombres!: string;
+    user_id!: number;
+    
+    person_id!: number;
+    
+    type_doc_id!: number;
     @Expose()
-    apellidos!: string;
+    type_doc!: string;
     @Expose()
-    fijo!: string;
+    id!: string;
     @Expose()
-    celular!: string;
+    name!: string; 
     @Expose()
-    correo!: string;
-
-    contraseña!: string;
-    rol!: number;
-    estado!: number;
+    e_activity!: string; 
+    @Expose()
+    city_id!: string;
+    @Expose()
+    birth_date!: Date
+    @Expose()
+    email!: string;
+    @Expose()
+    pep!: number;
+  
+    rol_id!: number;
+   
+    rol_name!: string;
+    
+    password!: string;
+    
+    status!: number;
+    @Expose()
+    user_exec!: number;
 }
-
-export interface IResponseDto<Model, Response>{
-    fromDomainToResponse(model: Model | Model[]): Response | Response[];    
-};
-
 
 export class UserResponseDto implements IResponseDto<UserD,UserResponse> {
     fromDomainToResponse(model: UserD | UserD[]): UserResponse | UserResponse[] {
@@ -43,8 +52,7 @@ export class UserResponseDto implements IResponseDto<UserD,UserResponse> {
 
         return plainToInstance(UserResponse, model,
             {
-                excludeExtraneousValues: true,
-                groups:['admin','operator']
+                excludeExtraneousValues: true
              });
     }
 }

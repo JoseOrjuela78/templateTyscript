@@ -14,7 +14,7 @@ export class ResultSet{
             TOTAL_ROWS: 0,
             DATA: []
         }
-
+        
        if (queryResult.result.recordsets.length > 0) {
 
                 const data:any = queryResult.result.recordsets;
@@ -35,9 +35,10 @@ export class ResultSet{
                     }
                 }
              
-                if (queryResult.result.recordset){    
-                    answer.DATA = queryResult.result.recordset;
-                  }
+           if (queryResult.result.recordset) {    
+                    
+               answer.DATA = queryResult.result.recordset;
+               }
                 return answer;
             
               };

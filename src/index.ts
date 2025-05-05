@@ -23,7 +23,7 @@ async function start() {
 } catch (error: unknown) {
 
   if (error instanceof Error) {
-    logger.info(`Error: ${(error).message}`)
+    logger.error(`Error: ${(error).message}`)
   } else {
     logger.error(`An error ocurred':${error}`);
   }

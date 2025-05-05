@@ -1,7 +1,8 @@
-import { IResponseDto } from "../../modules/user/dtos/user-response.dto";
+
 import { PageResult } from "../interfaces/page-results";
 import { BasePort } from "../port/base.port";
 import { ResultI } from '../adapter/operarations.model';
+import { IResponseDto } from "../interfaces/response-dto";
 
 export abstract class BaseApplication<Model, Port extends BasePort<Model>, Response, DtoResponse extends IResponseDto<Model, Response>>{
     constructor(

@@ -6,6 +6,7 @@ import { listaRouter } from './modules/Listas/ports/presentation/lista.routes';
 import { listaDetalleRouter } from './modules/listas detalle/ports/presentation/lista-det.router';
 import { rolesRouter } from './modules/roles/ports/presentation/roles.router';
 import { pathsRouter } from './modules/paths/ports/presentation/paths.router';
+import { authRouter } from './modules/auth/presentation/auth.routes';
 
 
 
@@ -39,6 +40,7 @@ class App {
    this.app.use('/v1/listaDetalle', listaDetalleRouter)
    this.app.use('/v1/roles', rolesRouter)
    this.app.use('/v1/paths', pathsRouter)
+   this.app.use('/v1/auth', authRouter)
   }
 
   getApp() {

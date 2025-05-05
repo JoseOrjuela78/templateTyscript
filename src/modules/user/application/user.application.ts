@@ -18,11 +18,7 @@ export class UserAplication extends BaseApplication<
         super(userPort, new UserResponseDto());
      }
     
-    async login(user: UserD):Promise<UserD> {
-        return this.userPort.create(user);
-    };
-
-    async findByEmail(email: string):Promise<UserD>{
+     async findByEmail(email: string):Promise<UserD>{
         return this.userPort.findByEmail(email);
     }
 

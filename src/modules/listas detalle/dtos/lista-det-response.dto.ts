@@ -1,6 +1,7 @@
 import { Expose, plainToInstance } from "class-transformer";
 import { ListaDetalleD } from "../models/model.lista-det.domain";
-import { IResponseDto } from "../../user/dtos/user-response.dto";
+import { IResponseDto } from "../../../core/interfaces/response-dto";
+
 
 export class ListaDetalleResponse{
 

@@ -1,40 +1,122 @@
-import { IsEmail, IsNotEmpty, IsNumber, Matches, MaxLength, MinLength } from "class-validator";
+import { Type } from "class-transformer";
+import { IsDate, IsEmail, IsNotEmpty, IsNumber, Matches, MaxLength, Min, MinLength } from "class-validator";
 
 
 export class UserValidator {
-    @IsNotEmpty({message:'El primer nombre es requerido'})
-    @MinLength(3,{message:'deber tener minimo 3'})
+
+    @IsNotEmpty()
+    @IsNumber()
+    type_doc_id!: number;
+    
+    @IsNotEmpty()
+    @MinLength(6,{message:'id deber tener minimo 6'})
     @MaxLength(25)
-    numeroCedula!: number;
+    id!: string;
+
     @IsNotEmpty()
     @MinLength(3)
+    @MaxLength(200)
+    name!: string;
+
+    @IsNotEmpty()
+    @MinLength(1)
     @MaxLength(25)
-    alias!: string;
+    e_activity!: string;
+
     @IsNotEmpty()
-    @MinLength(3)
-    @MaxLength(50)
-    nombres!: string;
+    @MinLength(1)
+    @MaxLength(25)
+    city_id!: string;
+
     @IsNotEmpty()
-    @MinLength(3)
-    @MaxLength(50)
-    apellidos!: string;
-    @IsNotEmpty()
-    @MinLength(3)
-    @MaxLength(50)
-    fijo!: string;
-    @IsNotEmpty()
-    @MinLength(3)
-    @MaxLength(50)
-    celular!: string;
+    @Type(()=> Date)    
+    birth_date!: Date
+
     @IsNotEmpty()
     @IsEmail()
-    correo!: string;
-    @Matches(/^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[\W_]).{8,}$/,{message:'contraseña no valida'})
-    contraseña!: string;
+    email!: string;
+    
     @IsNotEmpty()
     @IsNumber()
-    rol!: number;
+    pep!: number;
+
     @IsNotEmpty()
     @IsNumber()
-    estado!: number;
+    rol_id!: number;
+
+    password!: string;
+
+}
+
+export class UserUpdateValidator { 
+
+    @IsNotEmpty()
+    @IsNumber()
+    user_id!: number;
+ 
+    @IsNotEmpty()
+    @IsNumber()
+    type_doc_id!: number;
+    
+    @IsNotEmpty()
+    @MinLength(6,{message:'id deber tener minimo 6'})
+    @MaxLength(25)
+    id!: string;
+
+    @IsNotEmpty()
+    @MinLength(3)
+    @MaxLength(200)
+    name!: string;
+
+    @IsNotEmpty()
+    @MinLength(1)
+    @MaxLength(25)
+    e_activity!: string;
+
+    @IsNotEmpty()
+    @MinLength(1)
+    @MaxLength(25)
+    city_id!: string;
+
+    @IsNotEmpty()
+    @Type(()=> Date)    
+    birth_date!: Date
+
+    @IsNotEmpty()
+    @IsEmail()
+    email!: string;
+    
+    @IsNotEmpty()
+    @IsNumber()
+    pep!: number;
+
+    @IsNotEmpty()
+    @IsNumber()
+    rol_id!: number;
+
+    password!: string;
+
+
+}
+
+export class InactivateParamsValidator {
+
+    @IsNotEmpty({message:'El id es requerido'})
+    @IsNumber()
+    @Min(1)
+    @Type(()=>Number)
+    id!: number;
+
+    
+    @IsNotEmpty({ message: 'El status es requerido' })
+    @IsNumber()
+    @Min(0)
+    @Type(() => Number)
+    status!: number;
+    
+    @IsNotEmpty({ message: 'El user_exe es requerido' })
+    @IsNumber()
+    @Min(1)
+    @Type(() => Number)
+    user_exe!: number
 }
