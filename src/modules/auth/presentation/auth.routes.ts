@@ -14,7 +14,8 @@ export class AuthRouters{
     
     mountRoutes() {
 
-        this.router.post('/',this.controller.login.bind(this.controller));
+        this.router.post('/', this.controller.login.bind(this.controller));
+        this.router.put('/refresh',this.controller.refreshToken.bind(this.controller));
      
     }
 };

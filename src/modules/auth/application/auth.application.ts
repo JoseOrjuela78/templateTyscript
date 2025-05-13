@@ -16,7 +16,7 @@ export class AuthAplication{
             return null;    
         };
         const userFound: UserD = result.data[0];
- 
+     
         const passwordMatch = await CypherService.compare(auth.password, String(userFound.password));
 
         if (!passwordMatch) {
@@ -29,4 +29,24 @@ export class AuthAplication{
         }
         
     }
+
+    async refreshToken(refreshToken: string): Promise<Tokens | null> { 
+
+        const filtro: any =[{ REFRESHTOKEN: refreshToken }];
+
+        const result:any = await this.userPort.getByPage(null, null, null, 1, filtro)
+
+        if (result.data.length == 0) {
+            return null;    
+        };
+        const userFound: UserD = result.data[0];
+
+       return {
+            accessToken: TokenService.generateAccessToken(Number(userFound.user_id), userFound.name),
+            refreshToken: userFound.refreshToken ?? ""
+       }
+              
+    }
+
+
 }

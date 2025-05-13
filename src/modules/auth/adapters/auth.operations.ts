@@ -12,7 +12,7 @@ export class AuthOperations {
      public async getPaths(id_usuario:number) {
             try {
                     
-                        const query = `EXECUTE SP_USUARIOS_GET_PATHS 
+                 const query = `EXECUTE SP_USUARIOS_GET_PATHS 
                                       @ID_USUARIO`;
                 
                         const params = {

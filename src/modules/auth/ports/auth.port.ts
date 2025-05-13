@@ -9,4 +9,5 @@ export type Tokens = {
 export type AuthPort = {
     login(auth: AuthD): Promise<Tokens | null>;
     getPaths(id_usuario: number): Promise<PageResult<any>>;
+    refreshToken(refreshToken:string):Promise<Tokens| null>;
 };

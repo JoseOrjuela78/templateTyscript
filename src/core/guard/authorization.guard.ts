@@ -19,7 +19,7 @@ export class AuthorizationGuard {
     static async execute(request: Request, response: Response, next: NextFunction): Promise<any> {
         const user_id = response.locals.user_id;
         const pathToValidate = request.originalUrl;
-
+        
         if (!user_id) {
             return response.status(403).json({ message: "Forbidden: User ID missing" });
         }
@@ -48,7 +48,7 @@ export class AuthorizationGuard {
             if (!isPathIncluded) {
                 return response.status(403).json({ message: "Access to this path is not allowed." });
             }
-            logger.info(`new Date().toString() "Access allowed"`)
+            logger.info(`${new Date().toString()} "Access allowed"`)
             next();
         } catch (error:any) {
             logger.error(`${new Date().toString()} Error processing authorization: ${error.message}`);

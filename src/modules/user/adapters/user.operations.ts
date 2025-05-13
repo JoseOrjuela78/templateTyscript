@@ -161,7 +161,8 @@ export class UserOperations {
                             NOMBRE_COMPLETO: null,
                             CIIU_ACTIVIDAD: null,
                             DANE_MUNICIPIO: null,
-                            EMAIL: null
+                            EMAIL: null,
+                            REFRESHTOKEN: null
                             };
 
             if (Array.isArray(filtros) && filtros.length > 0) {
@@ -175,7 +176,8 @@ export class UserOperations {
                             NOMBRE_COMPLETO: item.NOMBRE_COMPLETO ?? filters.NOMBRE_COMPLETO,
                             CIIU_ACTIVIDAD: item.CIIU_ACTIVIDAD ?? filters.CIIU_ACTIVIDAD,
                             DANE_MUNICIPIO: item.DANE_MUNICIPIO ?? filters.DANE_MUNICIPIO,
-                            EMAIL: item.EMAIL ?? filters.EMAIL
+                            EMAIL: item.EMAIL ?? filters.EMAIL,
+                            REFRESHTOKEN: item.REFRESHTOKEN ?? filters.REFRESHTOKEN
                                        });
                         });
             };
@@ -195,7 +197,8 @@ export class UserOperations {
                                   ,@NOMBRE_COMPLETO
                                   ,@CIIU_ACTIVIDAD
                                   ,@DANE_MUNICIPIO
-                                  ,@EMAIL`;
+                                  ,@EMAIL
+                                  ,@REFRESHTOKEN`;
             
                     const params = {
                         PAGE_NUMBER: { value: page, type: sql.Int },
@@ -211,7 +214,8 @@ export class UserOperations {
                         NOMBRE_COMPLETO: { value: filters.NOMBRE_COMPLETO, type: sql.VarChar(200) },
                         CIIU_ACTIVIDAD: { value: filters.CIIU_ACTIVIDAD, type: sql.VarChar(25) },
                         DANE_MUNICIPIO: { value: filters.DANE_MUNICIPIO, type: sql.VarChar(25) },   
-                        EMAIL: { value: filters.EMAIL, type: sql.VarChar(50)} 
+                        EMAIL: { value: filters.EMAIL, type: sql.VarChar(50) },
+                        REFRESHTOKEN : { value: filters.REFRESHTOKEN, type: sql.VarChar(100) }
                       }; 
         
                     const queryResult:any = await this.db1.executeQuerydb1(query, params);

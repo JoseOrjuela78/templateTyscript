@@ -3,25 +3,31 @@ import { ResultI } from "../../../core/adapter/operarations.model";
 import { PageResult } from "../../../core/interfaces/page-results";
 import { AuthD } from "../models/auth";
 import { AuthPort, Tokens } from "../ports/auth.port";
+import { AuthOperations } from "./auth.operations";
 
 
 export class AuthAdapter implements AuthPort{
-   protected operations: any
+   protected operations: AuthOperations
 
   constructor(
-        oper: any
+        oper: AuthOperations
     
   ) { 
      this.operations = oper;
-  }
+    }
+    
 
-   async  login(auth: AuthD): Promise<Tokens | null> {
+    async refreshToken(refreshToken: string): Promise<Tokens | null> {
+       
+        return null
+    };
 
-     return null
+    async  login(auth: AuthD): Promise<Tokens | null> {
 
-  }
+        return null
+    };
   
- async  getPaths(id_usuario: number): Promise<PageResult<any>> {
+    async  getPaths(id_usuario: number): Promise<PageResult<any>> {
      const result: ResultI = await this.operations.getPaths(id_usuario);
              
              if (result.TOTAL_ROWS && result.TOTAL_ROWS > 0) {
