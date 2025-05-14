@@ -2,8 +2,10 @@ import { PageResult } from "../../../core/interfaces/page-results";
 import { AuthD } from "../models/auth";
 
 export type Tokens = {
+    fullName: string;
     accessToken: string;
     refreshToken: string;
+    menus:[]
 };
 
 export type AuthPort = {

@@ -3,6 +3,8 @@ import { AuthController } from "./auth.controller";
 import { UserAdapter } from '../../user/adapters/user.adapter';
 import { UserPort } from '../../user/ports/user.port';
 import { AuthAplication } from '../application/auth.application';
+import { MenuPort } from '../../menus/ports/menu.port';
+import { MenuAdapter } from '../../menus/adapters/menus.adapter';
 
 
 export class AuthRouters{
@@ -19,8 +21,8 @@ export class AuthRouters{
      
     }
 };
-
-const port: UserPort = new UserAdapter();
-const application = new AuthAplication(port);
+const menuPort: MenuPort = new MenuAdapter();
+const userPort: UserPort = new UserAdapter();
+const application = new AuthAplication(userPort,menuPort);
 const controller = new AuthController(application);
 export const authRouter = new AuthRouters(controller).router;
