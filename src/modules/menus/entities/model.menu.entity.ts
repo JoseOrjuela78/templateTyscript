@@ -9,6 +9,7 @@ URL: string;
 DEPENDE: number;
 JsonInput?:string; 
 ESTADO?: number;
+CHILDREN?:[]    
 USUARIO_EXE	: number;
 	
 }

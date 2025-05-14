@@ -19,6 +19,7 @@ export class MenuRouters{
         this.router.put('/', AuthenticationGuard.execute, this.controller.update.bind(this.controller));
         this.router.delete('/:id/:status/:user_exe', AuthenticationGuard.execute, this.controller.inactivate.bind(this.controller));
         this.router.put('/get', AuthenticationGuard.execute, this.controller.getByPage.bind(this.controller));
+        this.router.get('/getActivate', AuthenticationGuard.execute, this.controller.getActivateMenus.bind(this.controller));
         
     }
 };

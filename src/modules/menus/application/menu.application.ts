@@ -1,4 +1,5 @@
 import { BaseApplication } from "../../../core/application/base.application";
+import { PageResult } from "../../../core/interfaces/page-results";
 import { MenuResponse, MenuResponseDto } from "../dtos/menu-response.dto";
 
 import { MenuD } from "../models/model.menu.domain";
@@ -18,6 +19,11 @@ export class MenuAplication extends BaseApplication<
 
     ) {
         super(menuPort, new MenuResponseDto());
-     }
+    }
+    
+     async getActivateMenus(): Promise<PageResult<MenuD>>{
+         return this.menuPort.getActivateMenus();
+         };
+
 
 }

@@ -7,6 +7,7 @@ import { listaDetalleRouter } from './modules/listas detalle/ports/presentation/
 import { rolesRouter } from './modules/roles/ports/presentation/roles.router';
 import { pathsRouter } from './modules/paths/ports/presentation/paths.router';
 import { authRouter } from './modules/auth/presentation/auth.routes';
+import cors from 'cors';
 
 
 
@@ -22,6 +23,7 @@ class App {
 
    // Configura los middlewares de análisis de cuerpos
   private configureMiddleware() {
+    this.app.use(cors());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
   }

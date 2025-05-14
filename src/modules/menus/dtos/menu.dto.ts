@@ -16,6 +16,7 @@ export class MenuDto extends BaseDtoImpl<MenuE, MenuD> {
                 DEPENDE: menu.depend,
                 JsonInput: menu.JsonInput,
                 ESTADO: menu.status,
+                CHILDREN: menu.children,
                 USUARIO_EXE	: menu.user_exec
                };
     }
@@ -32,6 +33,7 @@ export class MenuDto extends BaseDtoImpl<MenuE, MenuD> {
                 depend: data.DEPENDE,
                 JsonInput: data.JsonInput,
                 status: data.ESTADO,
+                children: data.CHILDREN,
                 user_exec: data.USUARIO_EXE
                 };
     }

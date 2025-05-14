@@ -10,6 +10,7 @@ path: string;
 depend: number;
 JsonInput?:string; 
 status?: number;
+children?: [];    
 user_exec: number;
 }
 

@@ -65,13 +65,21 @@ export class MenuController {
 
     async getByPage(request: Request, response: Response) {
     
-        const { page, pageSize, id_menu, status} = request.body;
+        const { page, pageSize, id_menu, status, filtros} = request.body;
         
-        const result: any = await this.application.getByPage(page, pageSize, id_menu, status);
+        const result: any = await this.application.getByPage(page, pageSize, id_menu, status,filtros);
          
         response.status(result.STATUS_CODE).json(result);
        
            
+    }
+
+    async getActivateMenus(request: Request, response: Response) {
+    
+        const result: any = await this.application.getActivateMenus();
+         
+        response.status(result.STATUS_CODE).json(result);
+              
     }
     
 
