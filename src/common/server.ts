@@ -2,6 +2,7 @@ import https from 'https';
 import http from 'http';
 import { Ihttps } from './models/IhttpOptions';
 import { Application } from "express";
+import logger from './logger';
 
 export default class Server{
   
@@ -18,11 +19,11 @@ export default class Server{
                 .listen(this.port)
                 .on('listening',()=>{
                     resolve(true);
-                    console.log('Servidor http corriendo en puerto : ', this.port);
+                    logger.info(`Servidor http corriendo en puerto : ${this.port}`);
                 })
                 .on('error',(error: NodeJS.ErrnoException)=>{
                     reject(error);
-                    console.log(`Error:${error.message}`);
+                    logger.error(`Error:${error.message}`);
                 })
         }else{
             
@@ -30,13 +31,13 @@ export default class Server{
                 .listen(this.port)
                 .on('listening',()=>{
                     resolve(true);
-                    console.log('Servidor https corriendo en puerto : ', this.port);
+                    logger.info(`Servidor http corriendo en puerto : ${this.port}`);
                 })
                 .on('error',(error: NodeJS.ErrnoException)=>{
                      reject(error);
+                     logger.error(`Error:${error.message}`);
                 })
-        };
-
+            };
         });
     };
 }

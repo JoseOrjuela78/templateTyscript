@@ -1,22 +1,53 @@
-import "reflect-metadata";
-import { DataSource } from "typeorm";
+import e from "../config/enviroment-vars";
+import { IDatasource } from "../models/IDataSource";
+import { Pool } from "pg"
+import logger from "../logger";
 
-const AppDataSource = new DataSource({
-  type: "postgres",
-  host: 'ep-round-cherry-ai57ugbo-pooler.c-4.us-east-1.aws.neon.tech',
-  port: 5432,
-  username: 'neondb_owner',
-  password: 'npg_gSwk2scY4IUW',
-  database: 'neondb',
-  synchronize: true, // solo en desarrollo
-  logging: false,
-  entities: ["src/entity/**/*.ts"],
-  migrations: ["src/migration/**/*.ts"],
-  subscribers: [],
-  ssl: {
-    rejectUnauthorized: false, // 🔴 IMPORTANTE para muchos providers cloud
+
+class AppDataSource {
+
+  private pool!:Pool;
+  constructor(
+    private readonly config:IDatasource
+  ){
+    this.createPool(config);
   }
 
-});
+  private createPool(config:IDatasource){
+    this.pool = new Pool(config)
+  };
 
-export default AppDataSource;
+  /**
+  "SELECT * FROM get_user_by_id($1)",
+  [1]
+ */
+  async execQuery(query: string, params: any[] = []){
+     try {
+      const res = await this.pool.query(query,params);
+      return res.rows;
+    } catch (error) {
+        logger.error(`${error}`);
+      throw error;
+    };
+  }
+  
+  async close() {
+    await this.pool.end();
+      logger.info("🔒 Pool cerrado");
+  }
+
+}
+
+const config:IDatasource ={
+    host: e.envs.HOST_DB,
+    port: e.envs.PORT_DB,
+    user: e.envs.USER_DB,
+    password: e.envs.PASS_DB,
+    database: e.envs.NAME_DB,
+    ssl:{
+      rejectUnauthorized: Number(e.envs.REJECTUNAUTHORIZED) === 1
+    }
+};
+const database = new AppDataSource(config);
+
+export default database;
