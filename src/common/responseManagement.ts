@@ -12,7 +12,7 @@ class ResponseManagenent {
 
 responseResult = (req:Request, res: Response, code:number, message:string, data:any) =>{
 
-    this.log.info(`${req.method}-${req.originalUrl} message: ${message} data : ${JSON.stringify(data)}`);
+    this.log.info(`${req.method}-${req.originalUrl} code: ${code} message: ${message} data : ${JSON.stringify(data)}`);
     return res.status(code).json({
         app: this.app,
         status: true,

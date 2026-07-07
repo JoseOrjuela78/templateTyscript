@@ -14,7 +14,7 @@ export interface IUserDom {
     ciudad: number;	
     telefono: string;
     id_rol: number;
-    pass: string | null;
+    pass: string;
     id_usuario: number;
 };
 

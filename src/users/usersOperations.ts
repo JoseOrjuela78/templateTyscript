@@ -1,6 +1,6 @@
 import database from "../common/database/data-source";
-import { IUserDb } from "./port/IUserDb";
-import { IUserDom } from "./port/IUserDom";
+import { IUserDb } from "./port/models/IUserDb";
+import { IUserDom } from "./port/models/IUserDom";
 import { UserDto } from "./port/userDto";
 
 class UserOperations {
@@ -9,10 +9,13 @@ class UserOperations {
     async createUser(user:IUserDom){
        try {
             const userdb:IUserDb = UserDto.FromDomainToDb(user) as IUserDb;
-            const result:any = await this.db.execQuery(`${userdb}`);
+            //const result:any = await this.db.execQuery(`${userdb}`);
+            let data:any = UserDto.FromDbToDomain(userdb);
+            delete data.pass;
             return {
-                status_code: result.code,
-                status_desc: result.message
+                status_code: 200,//result.code,
+                status_desc: 'User created',//result.message
+                data
             };
 
        } catch (error:any) {
@@ -25,5 +28,4 @@ class UserOperations {
     };
 }
 
-const operations = new UserOperations(database);
-export default operations;
+export default UserOperations;

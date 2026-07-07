@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { UsersController } from "./usersController";
-import operations from './usersOperations';
+import UserOperations from "./usersOperations";
+import database from "../common/database/data-source";
 
 class UsersRouter{
     router:Router;
@@ -15,10 +16,12 @@ class UsersRouter{
             res.send('Welcome to Users')
         })
 
-        this.router.post('/',this.controller.createUser.bind(this.controller));
+        this.router.post('/create',this.controller.createUser.bind(this.controller));
     }
 }
 
-const controller = new UsersController(operations)
+const db = database;
+const operations = new UserOperations(db);
+const controller = new UsersController(operations);
 const routes = new UsersRouter(controller).router;
 export { routes };

@@ -1,5 +1,5 @@
-import { IUserDb } from "./IUserDb";
-import { IUserDom } from "./IUserDom";
+import { IUserDb } from "./models/IUserDb";
+import { IUserDom } from "./models/IUserDom";
 
 export class UserDto {
     static FromDomainToDb(data:IUserDom | IUserDom[]):IUserDb |IUserDb[]{
@@ -12,18 +12,18 @@ export class UserDto {
                                 TIPO_PERSONA: data.tipo_persona,
                                 TIPO_IDENTIFICACION: data.tipo_identificacion,
                                 IDENTIFICACION: data.identificacion,
-                                RAZON_SOCIAL: data.razon_social,
-                                NOMBRE1: data.nombre1,
-                                NOMBRE2: data.nombre2,
-                                APELLIDO1: data.apellido1,
-                                APELLIDO2: data.apellido2,
+                                RAZON_SOCIAL: data.razon_social.toUpperCase(),
+                                NOMBRE1: data.nombre1.toUpperCase(),
+                                NOMBRE2: data.nombre2.toUpperCase(),
+                                APELLIDO1: data.apellido1.toUpperCase(),
+                                APELLIDO2: data.apellido2.toUpperCase(),
                                 EMAIL: data.email,
                                 GENERO: data.genero,
                                 CIUDAD: data.ciudad,
                                 TELEFONO: data.telefono,
                                 ID_ROL: data.id_rol,
                                 PASS: data.pass,
-                                ID_USUARIO: data.id_usuario
+                                EXEC_USUARIO: data.id_usuario
                                 };
 
         return userdb;
@@ -50,7 +50,7 @@ export class UserDto {
                                 telefono: data.TELEFONO, 
                                 id_rol: data.ID_ROL, 
                                 pass: data.PASS, 
-                                id_usuario: data.ID_USUARIO 
+                                id_usuario: data.EXEC_USUARIO 
                                 };
 
         return userdom;

@@ -24,10 +24,10 @@ class App{
      };
 
     private mountRoutes() {
-        this.app.use('/users', UsersRouter);
-        this.app.use('/rol', RolesRouter);
-        this.app.use('/restrictions', RestrictionsRouter);
-        this.app.use('/filters',FiltersRouter);
+        this.app.use('/v1/users', UsersRouter);
+        this.app.use('/v1/rol', RolesRouter);
+        this.app.use('/v1/restrictions', RestrictionsRouter);
+        this.app.use('/v1/filters',FiltersRouter);
     };
 
     getApp(){

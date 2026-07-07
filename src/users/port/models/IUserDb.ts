@@ -12,6 +12,6 @@ export interface IUserDb {
     CIUDAD: number;	
     TELEFONO: string;
     ID_ROL: number;
-    PASS: string | null;
-    ID_USUARIO: number;
+    PASS: string;
+    EXEC_USUARIO: number;
 };
