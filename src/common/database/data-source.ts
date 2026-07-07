@@ -1,16 +1,19 @@
 import e from "../config/enviroment-vars";
 import { IDatasource } from "../models/IDataSource";
 import { Pool } from "pg"
-import logger from "../logger";
+import Logger from "../logger";
 
 
 class AppDataSource {
 
   private pool!:Pool;
+  private log:Logger;
+
   constructor(
     private readonly config:IDatasource
   ){
     this.createPool(config);
+    this.log = new Logger();
   }
 
   private createPool(config:IDatasource){
@@ -26,14 +29,14 @@ class AppDataSource {
       const res = await this.pool.query(query,params);
       return res.rows;
     } catch (error) {
-        logger.error(`${error}`);
+        this.log.error(`${error}`);
       throw error;
     };
   }
   
   async close() {
     await this.pool.end();
-      logger.info("🔒 Pool cerrado");
+      this.log.info("🔒 Pool cerrado");
   }
 
 }

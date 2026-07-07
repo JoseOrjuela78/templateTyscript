@@ -4,8 +4,9 @@ import { application } from "./src/application";
 import { Ihttps } from "./src/common/models/IhttpOptions";
 import e from "./src/common/config/enviroment-vars";
 import database from "./src/common/database/data-source";
-import logger from "./src/common/logger";
+import Logger from "./src/common/logger";
 
+const logger = new Logger();
 const port = e.envs.PORT;
 const https_options: Ihttps ={
     key:'',

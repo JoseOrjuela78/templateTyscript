@@ -59,6 +59,7 @@ class Logger {
 }
 
 // ✅ Exportar instancia (singleton)
-const logger = new Logger();
-export default logger;
+
+//const logger = new Logger();
+export default Logger;
 ``

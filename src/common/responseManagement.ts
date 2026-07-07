@@ -1,27 +1,38 @@
 import { Request, Response } from "express";
-import logger from "./logger";
+import Logger from "./logger";
 import e from "./config/enviroment-vars";
 
- export const responseResult = (req:Request, res: Response, code:number, message:string, data:any) =>{
+class ResponseManagenent {
+   private log:Logger;
+   private app:string;
+    constructor(){
+        this.log = new Logger();
+        this.app = e.envs.APP;
+    }
 
-    logger.info(`${req.method}-${req.originalUrl} message: ${message} data : ${JSON.stringify(data)}`);
+responseResult = (req:Request, res: Response, code:number, message:string, data:any) =>{
+
+    this.log.info(`${req.method}-${req.originalUrl} message: ${message} data : ${JSON.stringify(data)}`);
     return res.status(code).json({
-        app: e.envs.APP,
+        app: this.app,
         status: true,
         message,
         data
-    })
-
+    });
 };
 
-export const responseError = (req:Request, res: Response, code:number, message:string) =>{
+responseError = (req:Request, res: Response, code:number, message:string) =>{
 
-    logger.error(`${req.method}-${req.originalUrl} code:${code} message: ${message}`);
+    this.log.error(`${req.method}-${req.originalUrl} code:${code} message: ${message}`);
     return res.status(code).json({
-        app: e.envs.APP,
+        app: this.app,
         status: false,
         message
     })
 
 };
+
+}
+
+export default ResponseManagenent;
 

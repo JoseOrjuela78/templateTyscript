@@ -1,5 +1,4 @@
 import { Router } from "express";
-import {responseResult, responseError}  from "../common/responseManagement";
 
 class RolesRouter{
     router:Router;
@@ -11,12 +10,8 @@ class RolesRouter{
 
    private mountRoutes(){
         this.router.get('/',(req,res)=>{
-
-          responseResult(req, res,200,'Welcome to Roles',[]);
-          //responseError(req, res,404,'Error to Roles');
-
-                 
-        })
+             res.send('Welcome to Roles')        
+        });
     }
 }
 const routes = new RolesRouter().router;

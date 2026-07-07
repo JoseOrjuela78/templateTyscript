@@ -2,15 +2,18 @@ import https from 'https';
 import http from 'http';
 import { Ihttps } from './models/IhttpOptions';
 import { Application } from "express";
-import logger from './logger';
+import Logger from './logger';
 
 export default class Server{
   
+    private log:Logger;
     constructor(
                 private readonly app: Application, 
                 private readonly port: number,
                 private readonly https_options: Ihttps
-               ){}
+               ){
+                this.log = new Logger();
+               }
 
    initialize(){
         return new Promise((resolve,reject)=>{
@@ -19,11 +22,11 @@ export default class Server{
                 .listen(this.port)
                 .on('listening',()=>{
                     resolve(true);
-                    logger.info(`Servidor http corriendo en puerto : ${this.port}`);
+                    this.log.info(`Servidor http corriendo en puerto : ${this.port}`);
                 })
                 .on('error',(error: NodeJS.ErrnoException)=>{
                     reject(error);
-                    logger.error(`Error:${error.message}`);
+                    this.log.error(`Error:${error.message}`);
                 })
         }else{
             
@@ -31,11 +34,11 @@ export default class Server{
                 .listen(this.port)
                 .on('listening',()=>{
                     resolve(true);
-                    logger.info(`Servidor http corriendo en puerto : ${this.port}`);
+                    this.log.info(`Servidor http corriendo en puerto : ${this.port}`);
                 })
                 .on('error',(error: NodeJS.ErrnoException)=>{
                      reject(error);
-                     logger.error(`Error:${error.message}`);
+                     this.log.error(`Error:${error.message}`);
                 })
             };
         });

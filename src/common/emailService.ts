@@ -29,15 +29,3 @@ export class SmtpEmailService implements IEmailService {
   }
 }
 
-/**
-
-const emailService = new SmtpEmailService();
-
-await emailService.send({
-  to: "usuario@empresa.com",
-  subject: "Bienvenido",
-  html: "<h1>Bienvenido al sistema</h1>",
-});
-
- 
- */
