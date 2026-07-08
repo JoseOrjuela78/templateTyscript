@@ -43,8 +43,8 @@ class AuthService{
 
             jwt.verify(token,this.jwtKey, async (err:any, decoded:any) => {
                  
-                if (err)throw new AppError(err, 401)
-                req.user = decoded.user;
+                if (err) throw new AppError(err, 401);
+                req.user = decoded;
                 next();
             });
             

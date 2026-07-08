@@ -84,3 +84,14 @@
 2026-07-07 17:16:04 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
 2026-07-07 17:16:59 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
 2026-07-07 17:17:01 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-08 10:42:49 [error]: Error iniciando la aplicación:", listen EADDRINUSE: address already in use :::3000
+2026-07-08 10:55:00 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-08 10:55:02 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-08 10:55:03 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-08 10:55:04 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-08 10:55:04 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-08 10:55:05 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-08 10:55:06 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-08 10:56:08 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-08 10:56:09 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-08 14:26:11 [error]: Error iniciando la aplicación:", listen EADDRINUSE: address already in use :::3000

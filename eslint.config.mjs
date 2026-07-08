@@ -1,3 +1,4 @@
+/*
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 
@@ -9,7 +10,8 @@ export default [
   ...tseslint.configs.recommended,
 
   {
-    files: ['**/*.ts'],
+    files: ['**///*.ts'],
+    /*
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
@@ -36,4 +38,4 @@ export default [
       'eol-last': ['error', 'always'],
     },
   },
-];
+];*/

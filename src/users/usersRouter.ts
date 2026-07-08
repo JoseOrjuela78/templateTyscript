@@ -16,12 +16,8 @@ class UsersRouter{
     }
 
    private mountRoutes(){
-        this.router.get('/',(req,res)=>{
-            res.send('Welcome to Users')
-        })
-
-        this.router.post('/create',[this.auth.verificaToken.bind(this.auth)],this.controller.createUser.bind(this.controller));
-        this.router.post('/login',this.controller.login.bind(this.controller));
+       this.router.post('/create', [this.auth.verificaToken.bind(this.auth)], this.controller.createUser.bind(this.controller));
+       this.router.post('/login', this.controller.login.bind(this.controller));
     }
 }
 

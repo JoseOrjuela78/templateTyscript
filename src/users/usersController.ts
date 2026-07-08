@@ -29,9 +29,10 @@ export class UsersController {
        
     }
 
-   async createUser(req:Request, res:Response){
+   async createUser(req:any, res:Response){
         try {
             this.log.info(`${req.method}-${req.originalUrl} entry to createUser with body ${JSON.stringify(req.body)}`);
+            const id_user = req.user.ID_USUARIO;
             const user: IUserDom = req.body;
             const userValidator = new UserValidator();
                 userValidator.tipo_persona = user.tipo_persona ;
@@ -48,7 +49,7 @@ export class UsersController {
                 userValidator.telefono = user.telefono;
                 userValidator.id_rol = user.id_rol;
                 userValidator.pass = user.pass;
-                userValidator.id_usuario = user.id_usuario;
+                userValidator.id_usuario = id_user;
             
             const errors = await validate(userValidator);
 
@@ -96,7 +97,7 @@ export class UsersController {
                 throw new AppError('Incorrect credentials', 403);
             };
          
-            const token = await this.auth.sign(user);
+        const token = await this.auth.sign({ user });
                 
             return this.resManagement.responseResult(req,res,result.status_code,result.status_desc,{token});
         } catch (error:any) {
