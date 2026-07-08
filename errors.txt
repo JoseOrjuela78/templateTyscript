@@ -75,3 +75,12 @@
 2026-07-07 12:48:56 [error]: POST-/v1/users/create code:411 message: ["id_rol must not be less than 1","pass should not be empty","id_usuario should not be empty"]
 2026-07-07 12:48:56 [error]: POST-/v1/users/create code:411 message: ["id_rol must not be less than 1","pass should not be empty","id_usuario should not be empty"]
 2026-07-07 12:48:58 [error]: POST-/v1/users/create code:411 message: ["id_rol must not be less than 1","pass should not be empty","id_usuario should not be empty"]
+2026-07-07 14:27:34 [error]: POST-/v1/users/create code:411 message: ["id_rol must not be less than 1","pass should not be empty","id_usuario should not be empty"]
+2026-07-07 17:10:55 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-07 17:15:47 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-07 17:15:51 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-07 17:16:00 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-07 17:16:03 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-07 17:16:04 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-07 17:16:59 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-07 17:17:01 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid

@@ -11,11 +11,40 @@ class UserOperations {
             const userdb:IUserDb = UserDto.FromDomainToDb(user) as IUserDb;
             //const result:any = await this.db.execQuery(`${userdb}`);
             let data:any = UserDto.FromDbToDomain(userdb);
-            delete data.pass;
+           // delete data.pass;
             return {
                 status_code: 200,//result.code,
                 status_desc: 'User created',//result.message
                 data
+            };
+
+       } catch (error:any) {
+            return {
+                    status_code: error.code,
+                    status_desc: error.message
+                   };
+       }; 
+       
+    };
+
+    async login(email:string){
+       try {
+            
+            //const result:any = await this.db.execQuery(`${userdb}`);
+        
+            const user = {
+                NOMBRE1: "ALFREDO",
+                APELLIDO1: "ORJUELA",
+                ID_ROL:1,
+                ID_USUARIO: 1
+            };
+
+            const pass = "$2b$10$WGIDiVmvLIMy4CNgjIvhWe30tkGW1s3DzDx2s7f7T3N/OXbvLlm6q";
+            return {
+                status_code: 200,//result.code,
+                status_desc: `credentials successfully validated`,//result.message
+                user,
+                pass
             };
 
        } catch (error:any) {

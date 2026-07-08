@@ -8,31 +8,28 @@ import { UserValidator } from './port/validators/userValidator';
 import { validate } from 'class-validator';
 import { UtilService } from '../common/utilsService';
 import AppError from '../common/appError';
-import bcrypt from 'bcryptjs';
+import { ILogin } from './port/models/ILogin';
+import { LoginValidator } from './port/validators/loginValidator';
+import { uuid } from 'uuidv4';
+import AuthService from '../common/authService';
 
 
 export class UsersController {
 
     private resManagement:ResponseManagenent;
     private log:Logger;
+    private auth: AuthService;
     
     constructor(
         private readonly operation: UserOperations
     ){
         this.resManagement = new ResponseManagenent();
         this.log = new Logger();
+        this.auth = new AuthService();
        
     }
 
-    
-   private async encryptPassword(pass:string) {
-        const salt = bcrypt.genSaltSync(10);
-        const password = await bcrypt.hash(pass, salt);
-        return password;
-   };
-
-
-    async createUser(req:Request, res:Response){
+   async createUser(req:Request, res:Response){
         try {
             this.log.info(`${req.method}-${req.originalUrl} entry to createUser with body ${JSON.stringify(req.body)}`);
             const user: IUserDom = req.body;
@@ -60,10 +57,48 @@ export class UsersController {
             throw new AppError(JSON.stringify(errorsMessages), 411);
             };
 
-            user.pass = await this.encryptPassword(user.pass);
+            user.pass = await this.auth.encryptPassword(user.pass);
                
             const result = await this.operation.createUser(user);
             return this.resManagement.responseResult(req,res,result.status_code,result.status_desc,result.data);
+        } catch (error:any) {
+            return this.resManagement.responseError(req,res,error.code,error.message);
+        };
+   };
+
+   async login(req:Request, res:Response){
+    try {
+            this.log.info(`${req.method}-${req.originalUrl} entry to login`);
+           
+            const login: ILogin = req.body;
+            const loginValidator = new LoginValidator();
+                  loginValidator.email = login.email;
+                  loginValidator.pass = login.pass;
+                
+            const errors = await validate(loginValidator);
+
+           if(errors.length > 0){
+            const errorsMessages = UtilService.extractErrorMessages(errors);
+            throw new AppError(JSON.stringify(errorsMessages), 411);
+            };
+
+            const result = await this.operation.login(login.email);
+
+            if(result.status_code != 200){
+                throw new AppError(result.status_desc, result.status_code);
+            };
+
+            const user = result.user;
+            const dbPass = result.pass ?? uuid();
+            let status = await this.auth.comparePassword(login.pass, dbPass);
+            
+            if(!status){
+                throw new AppError('Incorrect credentials', 403);
+            };
+         
+            const token = await this.auth.sign(user);
+                
+            return this.resManagement.responseResult(req,res,result.status_code,result.status_desc,{token});
         } catch (error:any) {
             return this.resManagement.responseError(req,res,error.code,error.message);
         };
