@@ -95,3 +95,6 @@
 2026-07-08 10:56:08 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
 2026-07-08 10:56:09 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
 2026-07-08 14:26:11 [error]: Error iniciando la aplicación:", listen EADDRINUSE: address already in use :::3000
+2026-07-09 09:49:37 [error]: Error: Connection terminated unexpectedly
+2026-07-09 09:49:37 [error]: Error iniciando la aplicación:", Connection terminated unexpectedly
+2026-07-09 11:14:32 [error]: Error iniciando la aplicación:", Failed to connect to 192.168.100.100:1522 in 15000ms

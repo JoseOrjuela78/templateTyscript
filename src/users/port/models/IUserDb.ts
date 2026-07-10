@@ -1,4 +1,5 @@
 export interface IUserDb {
+    ID_USUARIO:number | null;
     TIPO_PERSONA: number;
     TIPO_IDENTIFICACION: number;
     IDENTIFICACION: string;

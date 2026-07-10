@@ -1,10 +1,13 @@
-import database from "../common/database/data-source";
+import msDatabase from "../common/database/data-mssql";
+import { ILogin } from "./port/models/ILogin";
 import { IUserDb } from "./port/models/IUserDb";
 import { IUserDom } from "./port/models/IUserDom";
 import { UserDto } from "./port/userDto";
+import sql from 'mssql';
 
 class UserOperations {
-    constructor(private readonly db: typeof database){}
+  
+    constructor(private readonly db: typeof msDatabase){}
 
     async createUser(user:IUserDom){
        try {
@@ -27,25 +30,32 @@ class UserOperations {
        
     };
 
-    async login(email:string){
+    async login(bd:ILogin){
        try {
-            
-            //const result:any = await this.db.execQuery(`${userdb}`);
+            const result:any = await this.db.executeStoredProcedure(
+                'PR_LOGIN',
+                {
+                email: { type: sql.VarChar, value: bd.email }
+                },
+                { 
+                pass: sql.VarChar(100),
+                status_code: sql.Int,
+                status_desc: sql.VarChar(500)
+                }
+            );
         
-            const user = {
-                NOMBRE1: "ALFREDO",
-                APELLIDO1: "ORJUELA",
-                ID_ROL:1,
-                ID_USUARIO: 1
-            };
+            const user = result.recordsets[0][0];
+            const menus = result.recordsets[1];
+            const restricciones = result.recordsets[2];
 
-            const pass = "$2b$10$WGIDiVmvLIMy4CNgjIvhWe30tkGW1s3DzDx2s7f7T3N/OXbvLlm6q";
             return {
-                status_code: 200,//result.code,
-                status_desc: `credentials successfully validated`,//result.message
-                user,
-                pass
-            };
+                    pass: result.output.pass,
+                    user,
+                    menus,
+                    restricciones,
+                    status_code: result.output.status_code,
+                    status_desc: result.output.status_desc
+                   };
 
        } catch (error:any) {
             return {

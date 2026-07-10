@@ -1,7 +1,8 @@
 import { Parser } from 'json2csv';
+import { validate } from 'class-validator';
 
 export class UtilService {
-
+/*
     // objetivo: extraer mensajes de error del validator
     static extractErrorMessages(errors:any[]):string[]{
         let messages:string[] = [];
@@ -16,6 +17,7 @@ export class UtilService {
         });
         return messages;
     };
+    */
 
     // objetivo: convertir un array en un array de por lotes
     static createChunckArray(items:any[], batchSize:number):any[]{
@@ -80,5 +82,25 @@ export class UtilService {
 
         return regex.test(pathPequest);
     };
+
+    // objetivo: extraer mensajes de error del validator
+    static async validateErrors(obj:Object){
+        const errors = await validate(obj);
+        let errorsMessages:any[] = [];
+
+        if(errors.length > 0){
+            errors.forEach((error)=>{
+                if(error.constraints){
+                    errorsMessages = errorsMessages.concat(Object.values(error.constraints));
+                };
+
+                if(error.children && error.children.length > 0){
+                    errorsMessages = errorsMessages.concat(Object.values(error.children));
+                };
+            });
+        };
+
+        return errorsMessages;
+    }
 
 };

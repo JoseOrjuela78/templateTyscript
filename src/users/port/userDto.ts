@@ -9,6 +9,7 @@ export class UserDto {
         };
         
         const userdb:IUserDb = {
+                                ID_USUARIO:data.id_usuario,
                                 TIPO_PERSONA: data.tipo_persona,
                                 TIPO_IDENTIFICACION: data.tipo_identificacion,
                                 IDENTIFICACION: data.identificacion,
@@ -23,7 +24,7 @@ export class UserDto {
                                 TELEFONO: data.telefono,
                                 ID_ROL: data.id_rol,
                                 PASS: data.pass,
-                                EXEC_USUARIO: data.id_usuario
+                                EXEC_USUARIO: data.exec_usuario
                                 };
 
         return userdb;
@@ -36,6 +37,7 @@ export class UserDto {
         };
 
         const userdom:IUserDom = {
+                                id_usuario: data.ID_USUARIO,
                                 tipo_persona: data.TIPO_PERSONA, 
                                 tipo_identificacion: data.TIPO_IDENTIFICACION, 
                                 identificacion: data.IDENTIFICACION, 
@@ -50,7 +52,7 @@ export class UserDto {
                                 telefono: data.TELEFONO, 
                                 id_rol: data.ID_ROL, 
                                 pass: data.PASS, 
-                                id_usuario: data.EXEC_USUARIO 
+                                exec_usuario: data.EXEC_USUARIO 
                                 };
 
         return userdom;

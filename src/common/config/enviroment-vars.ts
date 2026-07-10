@@ -17,6 +17,12 @@ type EnvironmentVars = {
     EMAIL_FROM:string;
     JWT_KEY:string;
     EXPIRES_IN:string;
+    MS_USER:string;
+    MS_PASSWORD:string;
+    MS_DB:string;
+    MS_PORT:number;
+    MS_HOST:string;
+    MS_OPTIONS:string;
 };
 
 type ValidationEnvVars = {
@@ -51,7 +57,13 @@ class EnvService {
       SMTP_PASSWORD:Joi.string().required(),
       EMAIL_FROM:Joi.string().email().required(),
       JWT_KEY:Joi.string().required(),
-      EXPIRES_IN:Joi.string().required()
+      EXPIRES_IN:Joi.string().required(),
+      MS_USER:Joi.string().required(),
+      MS_PASSWORD:Joi.string().required(),
+      MS_DB:Joi.string().required(),
+      MS_PORT:Joi.number().integer().required(),
+      MS_HOST:Joi.string().required(),
+      MS_OPTIONS:Joi.string().required()
     }).unknown(true);
 
     return schema.validate(vars);

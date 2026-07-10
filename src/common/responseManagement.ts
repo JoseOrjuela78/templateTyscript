@@ -21,7 +21,7 @@ responseResult = (req:Request, res: Response, code:number, message:string, data:
     });
 };
 
-responseError = (req:Request, res: Response, code:number, message:string) =>{
+responseError = (req:Request, res: Response, code:number = 500, message:string = 'Internal error') =>{
 
     this.log.error(`${req.method}-${req.originalUrl} code:${code} message: ${message}`);
     return res.status(code).json({

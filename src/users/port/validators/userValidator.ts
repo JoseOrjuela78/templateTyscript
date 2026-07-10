@@ -1,6 +1,9 @@
 import { IsEmail, IsNotEmpty, IsNumber, Min } from "class-validator";
 
 export class UserValidator {
+
+    id_usuario!: number;
+
     @IsNumber()
     @Min(1)
     @IsNotEmpty()
@@ -53,7 +56,8 @@ export class UserValidator {
     @IsNotEmpty()
     pass!: string;
 
+    @IsNumber()
+    @Min(1)
     @IsNotEmpty()
-    id_usuario!: number;
-    
+    exec_usuario!: number;
 }

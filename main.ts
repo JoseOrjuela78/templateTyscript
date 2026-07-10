@@ -4,6 +4,7 @@ import { application } from "./src/application";
 import { Ihttps } from "./src/common/models/IhttpOptions";
 import e from "./src/common/config/enviroment-vars";
 import database from "./src/common/database/data-source";
+//import msDatabase from "./src/common/database/data-mssql";
 import Logger from "./src/common/logger";
 
 const logger = new Logger();
@@ -15,7 +16,14 @@ const https_options: Ihttps ={
 
 const startApp = async () => {
   try {
-    // ✅ Conectar base de datos
+    // ✅ Conectar base de datos ms
+    // const pool = await msDatabase.getPool();
+    // logger.info("Pool de MSSQL creado");
+    // await pool.close();
+    // logger.info("Conexión MSSQL verificada");
+
+
+    // ✅ Conectar base de datos postgrest
     const db = database;
     logger.info("Pool de PostgreSQL creado");
     await db.execQuery("SELECT 1");

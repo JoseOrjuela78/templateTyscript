@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { UsersController } from "./usersController";
 import UserOperations from "./usersOperations";
-import database from "../common/database/data-source";
+import msDatabase from "../common/database/data-mssql";
 import AuthService from "../common/authService";
 
 class UsersRouter{
@@ -21,7 +21,7 @@ class UsersRouter{
     }
 }
 
-const db = database;
+const db = msDatabase;
 const operations = new UserOperations(db);
 const controller = new UsersController(operations);
 const routes = new UsersRouter(controller).router;

@@ -1,6 +1,7 @@
 
 
 export interface IUserDom {
+    id_usuario: number | null;
     tipo_persona: number;
     tipo_identificacion: number;
     identificacion: string;
@@ -15,7 +16,8 @@ export interface IUserDom {
     telefono: string;
     id_rol: number;
     pass: string;
-    id_usuario: number;
+    exec_usuario: number;
+    
 };
 
 
