@@ -2,22 +2,6 @@ import { Parser } from 'json2csv';
 import { validate } from 'class-validator';
 
 export class UtilService {
-/*
-    // objetivo: extraer mensajes de error del validator
-    static extractErrorMessages(errors:any[]):string[]{
-        let messages:string[] = [];
-        errors.forEach((error)=>{
-            if(error.constraints){
-                messages = messages.concat(Object.values(error.constraints));
-            };
-
-            if(error.children && error.children.length > 0){
-                messages = messages.concat(Object.values(error.children));
-            }
-        });
-        return messages;
-    };
-    */
 
     // objetivo: convertir un array en un array de por lotes
     static createChunckArray(items:any[], batchSize:number):any[]{
@@ -101,6 +85,12 @@ export class UtilService {
         };
 
         return errorsMessages;
-    }
+    };
+
+    //searchFilters default
+
+    static async mapWithDefaults<T extends object>( model: T, data: Partial<T>): Promise<T> {
+         return {   ...model,   ...data, };
+    };
 
 };

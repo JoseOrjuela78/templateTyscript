@@ -98,3 +98,19 @@
 2026-07-09 09:49:37 [error]: Error: Connection terminated unexpectedly
 2026-07-09 09:49:37 [error]: Error iniciando la aplicación:", Connection terminated unexpectedly
 2026-07-09 11:14:32 [error]: Error iniciando la aplicación:", Failed to connect to 192.168.100.100:1522 in 15000ms
+2026-07-15 08:48:34 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-15 08:52:59 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-15 08:53:01 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-15 08:53:04 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-15 08:53:10 [error]: POST-/v1/users/create code:401 message: TokenExpiredError: jwt expired
+2026-07-15 08:53:12 [error]: POST-/v1/users/create code:401 message: TokenExpiredError: jwt expired
+2026-07-15 08:53:13 [error]: POST-/v1/users/create code:401 message: TokenExpiredError: jwt expired
+2026-07-15 08:54:04 [error]: POST-/v1/users/create code:401 message: TokenExpiredError: jwt expired
+2026-07-15 08:54:05 [error]: POST-/v1/users/create code:401 message: TokenExpiredError: jwt expired
+2026-07-15 08:54:06 [error]: POST-/v1/users/create code:401 message: TokenExpiredError: jwt expired
+2026-07-15 08:54:11 [error]: POST-/v1/users/create code:422 message: Token not provided or invalid
+2026-07-15 08:55:27 [error]: Error executeStoredProcedure PR_LOGIN - Failed to connect to 192.168.100.100:1522 in 15000ms
+2026-07-15 08:55:27 [error]: POST-/v1/users/login code:400 message: Cannot read properties of undefined (reading 'recordsets')
+2026-07-15 08:56:49 [error]: POST-/v1/users/create code:500 message: Cannot read properties of undefined (reading 'ID_USUARIO')
+2026-07-15 08:56:56 [error]: Error executeStoredProcedure PR_LOGIN - Failed to connect to 192.168.100.100:1522 in 15000ms
+2026-07-15 08:56:56 [error]: POST-/v1/users/login code:400 message: Cannot read properties of undefined (reading 'recordsets')
