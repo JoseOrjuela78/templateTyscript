@@ -114,3 +114,5 @@
 2026-07-15 08:56:49 [error]: POST-/v1/users/create code:500 message: Cannot read properties of undefined (reading 'ID_USUARIO')
 2026-07-15 08:56:56 [error]: Error executeStoredProcedure PR_LOGIN - Failed to connect to 192.168.100.100:1522 in 15000ms
 2026-07-15 08:56:56 [error]: POST-/v1/users/login code:400 message: Cannot read properties of undefined (reading 'recordsets')
+2026-07-15 15:33:48 [error]: Error executeStoredProcedure PR_LOGIN - Failed to connect to 192.168.100.100:1522 in 15000ms
+2026-07-15 15:33:48 [error]: POST-/users/v1/login code:400 message: Cannot read properties of undefined (reading 'recordsets')
