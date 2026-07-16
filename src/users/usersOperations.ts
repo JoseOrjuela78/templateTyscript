@@ -41,8 +41,8 @@ class UserOperations {
                 }
         );
             return {
-                status_code: result.STATUS_CODE,
-                status_desc: result.STATUS_DESC,
+                status_code: result.output.STATUS_CODE,
+                status_desc: result.output.STATUS_DESC,
                 code: result.CODIGO
             };
 
@@ -84,8 +84,8 @@ class UserOperations {
                 }
         );
             return {
-                status_code: result.STATUS_CODE,
-                status_desc: result.STATUS_DESC
+                status_code: result.output.STATUS_CODE,
+                status_desc: result.output.STATUS_DESC
             };
 
        } catch (error:any) {
@@ -114,8 +114,8 @@ class UserOperations {
                 }
         );
             return {
-                status_code: result.STATUS_CODE,
-                status_desc: result.STATUS_DESC
+                status_code: result.output.STATUS_CODE,
+                status_desc: result.output.STATUS_DESC
             };
 
        } catch (error:any) {
@@ -143,8 +143,8 @@ class UserOperations {
                 }
         );
             return {
-                status_code: result.STATUS_CODE,
-                status_desc: result.STATUS_DESC
+                status_code: result.output.STATUS_CODE,
+                status_desc: result.output.STATUS_DESC
             };
 
        } catch (error:any) {

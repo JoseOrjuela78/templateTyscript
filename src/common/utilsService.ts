@@ -56,6 +56,31 @@ export class UtilService {
         return rolSchema;
     };
 
+    static async createPermitsSchema(permitsJson:any){
+        
+        const rows = [];
+        const row = {
+                        ID_ROL: 0,
+                        ID_MENU: 0,
+                        ID_ACCION: 0,
+                        ESTADO: 0
+                    };
+
+        for (let i of permitsJson) {
+                row.ID_ROL = Number(i.idRol)
+                row.ID_MENU = i.idMenu
+                    for (let j of i.idAction) {
+                        row.ID_ACCION = j.codigo;
+                        row.ESTADO = j.status ? 1 : 0;
+                        rows.push({ ...row })
+                        continue;
+                    };
+        };
+
+        const result = JSON.stringify(rows);
+        return result;
+    };
+
     //validar path equivalentes
 
     static pathToRegex(path:string, pathPequest:string){

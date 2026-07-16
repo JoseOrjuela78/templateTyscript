@@ -36,8 +36,9 @@ export class UsersController {
    async createUser(req:any, res:Response){
         try {
             this.log.info(`${req.method}-${req.originalUrl} entry to createUser with body ${JSON.stringify(req.body)}`);
-            const exec_usuario = req.user.ID_USUARIO;
             const user: IUserDom = req.body;
+            user.exec_usuario = req.user.ID_USUARIO;
+
             const userValidator = new UserValidator();
                 userValidator.tipo_persona = user.tipo_persona ;
                 userValidator.tipo_identificacion = user.tipo_identificacion;
@@ -53,7 +54,7 @@ export class UsersController {
                 userValidator.telefono = user.telefono;
                 userValidator.id_rol = user.id_rol;
                 userValidator.pass = user.pass;
-                userValidator.exec_usuario = exec_usuario;
+                userValidator.exec_usuario = user.exec_usuario;
             
             const errors = await UtilService.validateErrors(userValidator);
 
@@ -64,6 +65,8 @@ export class UsersController {
             user.pass = await this.auth.encryptPassword(user.pass);
                
             const result = await this.operation.createUser(user);
+
+            if (result.status_code != 200) throw new AppError(result.status_desc, result.status_code);
 
             return this.resManagement.responseResult(
                 req,
@@ -88,9 +91,8 @@ export class UsersController {
    async updateUser(req:any, res:Response){
         try {
             this.log.info(`${req.method}-${req.originalUrl} entry to updateUser with body ${JSON.stringify(req.body)}`);
-            const exec_usuario = req.user.ID_USUARIO;
-
             const user: IUserDom = req.body;
+            user.exec_usuario = req.user.ID_USUARIO;
             const userUpValidator = new UserUpValidator();
                 userUpValidator.tipo_persona = user.tipo_persona ;
                 userUpValidator.tipo_identificacion = user.tipo_identificacion;
@@ -105,7 +107,7 @@ export class UsersController {
                 userUpValidator.ciudad = user.ciudad;	
                 userUpValidator.telefono = user.telefono;
                 userUpValidator.id_rol = user.id_rol;
-                userUpValidator.exec_usuario = exec_usuario;
+                userUpValidator.exec_usuario = user.exec_usuario;
             
             const errors = await UtilService.validateErrors(userUpValidator);
 
@@ -114,6 +116,8 @@ export class UsersController {
            };
 
             const result = await this.operation.updateUser(user);
+
+            if (result.status_code != 200) throw new AppError(result.status_desc, result.status_code);
 
             return this.resManagement.responseResult(
                 req,
@@ -153,6 +157,8 @@ export class UsersController {
 
             const result = await this.operation.updateStatusUser(body.identificacion,body.estado,exec_usuario);
 
+            if (result.status_code != 200) throw new AppError(result.status_desc, result.status_code);
+
             return this.resManagement.responseResult(
                 req,
                 res,
@@ -190,7 +196,10 @@ export class UsersController {
            };
 
             body.pass = await this.auth.encryptPassword(body.pass);
+
             const result = await this.operation.updatePassUser(body.id_usuario,body.pass,exec_usuario);
+
+            if (result.status_code != 200) throw new AppError(result.status_desc, result.status_code);
 
             return this.resManagement.responseResult(
                 req,

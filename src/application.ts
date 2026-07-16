@@ -3,7 +3,6 @@ import path from "path";
 import cors from "cors";
 import { routes as UsersRouter } from "./users/usersRouter";
 import { routes as RolesRouter } from "./roles/rolesRouter";
-import { routes as RestrictionsRouter } from "./restrictions/restrictionsRouter";
 import { routes as FiltersRouter } from "./filters/filtersRouter";
 import e from "./common/config/enviroment-vars";
 
@@ -26,7 +25,6 @@ class App{
     private mountRoutes() {
         this.app.use('/users', UsersRouter);
         this.app.use('/rol', RolesRouter);
-        this.app.use('/restrictions', RestrictionsRouter);
         this.app.use('/filters',FiltersRouter);
     };
 

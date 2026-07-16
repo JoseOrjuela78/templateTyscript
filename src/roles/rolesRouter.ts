@@ -1,10 +1,13 @@
 import { Router } from "express";
+import AuthService from "../common/authService";
 
 class RolesRouter{
     router:Router;
+    private auth: AuthService;
 
     constructor(){
         this.router = Router();
+        this.auth = new AuthService();
         this.mountRoutes();
     }
 
