@@ -23,7 +23,7 @@ class App{
      };
 
     private mountRoutes() {
-        this.app.use('/users', UsersRouter);
+        this.app.use('/api/usuarios', UsersRouter);
         this.app.use('/rol', RolesRouter);
         this.app.use('/filters',FiltersRouter);
     };

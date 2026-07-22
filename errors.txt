@@ -116,3 +116,38 @@
 2026-07-15 08:56:56 [error]: POST-/v1/users/login code:400 message: Cannot read properties of undefined (reading 'recordsets')
 2026-07-15 15:33:48 [error]: Error executeStoredProcedure PR_LOGIN - Failed to connect to 192.168.100.100:1522 in 15000ms
 2026-07-15 15:33:48 [error]: POST-/users/v1/login code:400 message: Cannot read properties of undefined (reading 'recordsets')
+2026-07-22 10:19:14 [error]: Error executeStoredProcedure PR_LOGIN - Failed to connect to 192.168.100.100:1433 in 15000ms
+2026-07-22 10:19:14 [error]: POST-/users/v1/login code:400 message: Cannot read properties of undefined (reading 'recordsets')
+2026-07-22 10:22:45 [error]: POST-/users/v1/create code:401 message: TokenExpiredError: jwt expired
+2026-07-22 10:23:22 [error]: POST-/users/v1/create code:500 message: Cannot read properties of undefined (reading '0')
+2026-07-22 10:28:22 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:30:05 [error]: POST-/users/v1/create code:500 message: Cannot read properties of undefined (reading '0')
+2026-07-22 10:30:05 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:32:50 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:33:14 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:36:56 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:37:31 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:39:35 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:41:19 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:43:21 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:43:32 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:44:15 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:44:41 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:45:06 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:45:36 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:46:26 [error]: POST-/users/v1/create code:411 message: ["exec_usuario should not be empty","exec_usuario must not be less than 1","exec_usuario must be a number conforming to the specified constraints"]
+2026-07-22 10:46:48 [error]: POST-/users/v1/create code:422 message: Identificación duplicada
+2026-07-22 10:46:57 [error]: POST-/users/v1/create code:422 message: Identificación duplicada
+2026-07-22 10:47:45 [error]: POST-/users/v1/create code:422 message: Identificación duplicada
+2026-07-22 10:47:55 [error]: POST-/users/v1/create code:422 message: Identificación duplicada
+2026-07-22 11:03:31 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-22 11:04:24 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-22 11:04:46 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-22 11:04:48 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-22 11:04:49 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-22 11:04:49 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-22 11:04:50 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-22 11:04:51 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-22 11:04:51 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-22 11:04:52 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-22 11:51:10 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
