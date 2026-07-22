@@ -34,12 +34,13 @@ class AuthService{
         return token;
    };
 
-   private async verificaPermits(req:any, res:Response){
-     try {
-        const result:any = this.db.executeStoredProcedure( 
+    private async verificaPermits(req: any, res: Response){
+       try {
+          
+        const result: any = await this.db.executeStoredProcedure( 
             'PR_GET_PATH_PERMITIDO',
             {
-                ID_ROL: { type: sql.Int, value: req.user.ID_ROL}
+                ID_ROL: { type: sql.Int, value: req.user.ID_ROL }
             },
             {
                 STATUS_CODE: sql.Int,
@@ -47,7 +48,6 @@ class AuthService{
             }
         );
        
-
     const dbPaths = result.recordsets[0];
     return dbPaths;
 
@@ -68,9 +68,9 @@ class AuthService{
             jwt.verify(token,this.jwtKey, async (err:any, decoded:any) => {
                  
                 if (err) return this.resManagement.responseError(req,res,401,err);
-                req.user = decoded;
-
-                const dbPaths = await this.verificaPermits(req,res);
+                req.user = decoded.user;
+                const dbPaths = await this.verificaPermits(req, res);
+               
                 if(dbPaths.length <= 0)return this.resManagement.responseError(req,res,401,'Insufficient privileges');
                 
                 let sts = false;

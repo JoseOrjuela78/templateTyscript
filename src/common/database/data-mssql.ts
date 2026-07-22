@@ -59,7 +59,7 @@ const sqlConfig:sql.config = {
     user: e.envs.MS_USER,
     password: e.envs.MS_PASSWORD,
     database: e.envs.MS_DB,
-    port: e.envs.MS_PORT,
+   // port: e.envs.MS_PORT,
     server: e.envs.MS_HOST,
     pool: {
         max: op.max,

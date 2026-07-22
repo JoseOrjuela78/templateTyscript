@@ -16,7 +16,7 @@ class UsersRouter{
     }
 
    private mountRoutes(){
-       this.router.post('/v1/create', [this.auth.verificaToken.bind(this.auth)], this.controller.createUser.bind(this.controller));
+       this.router.post('/', [this.auth.verificaToken.bind(this.auth)], this.controller.createUser.bind(this.controller));
        this.router.put('/v1/update', [this.auth.verificaToken.bind(this.auth)], this.controller.updateUser.bind(this.controller));
        this.router.put('/v1/status', [this.auth.verificaToken.bind(this.auth)], this.controller.statusUser.bind(this.controller));
        this.router.put('/v1/pass', [this.auth.verificaToken.bind(this.auth)], this.controller.passUser.bind(this.controller));
