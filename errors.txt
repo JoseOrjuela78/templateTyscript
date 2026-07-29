@@ -151,3 +151,9 @@
 2026-07-22 11:04:51 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
 2026-07-22 11:04:52 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
 2026-07-22 11:51:10 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-29 11:19:26 [error]: POST-/api/usuarios code:401 message: TokenExpiredError: jwt expired
+2026-07-29 11:19:29 [error]: POST-/api/usuarios code:401 message: TokenExpiredError: jwt expired
+2026-07-29 11:19:48 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-29 11:19:49 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-29 11:19:50 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
+2026-07-29 11:19:51 [error]: POST-/api/usuarios code:422 message: Identificación duplicada
